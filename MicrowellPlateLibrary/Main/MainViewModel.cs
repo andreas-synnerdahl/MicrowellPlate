@@ -13,7 +13,11 @@ namespace MicrowellPlate.Main
     {
         public MainViewModel()
         {
-            Plates = new ObservableCollection<Plate>();
+            Plates = new ObservableCollection<Plate>()
+            {
+                new WellPlate6(),
+                new WellPlate12(),
+            };
         }
 
         public ICollection<Plate> Plates { get; }

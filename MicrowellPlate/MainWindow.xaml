@@ -4,13 +4,51 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MicrowellPlate"
+        xmlns:main="clr-namespace:MicrowellPlate.Main;assembly=MicrowellPlateLibrary"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <DockPanel>
+
+    <Window.DataContext>
+        <main:MainViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type main:Well}">
+            <Ellipse 
+                Fill="LightGray"
+                Stroke="Black" 
+                StrokeThickness="1" />
+        </DataTemplate>
+        
+        
+
+        <DataTemplate 
+            x:Key="PlateDataTemplate"
+            DataType="{x:Type main:Plate}">
+            <ItemsControl                 
+                ItemsSource="{Binding Path=Wells}"
+                Width="300"
+                Height="200"
+                BorderBrush="Black" BorderThickness="1">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid 
+                            Rows="{Binding Path=Rows}"
+                            Columns="{Binding Path=Columns}">
+                        </UniformGrid>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>               
+            </ItemsControl>
+        </DataTemplate>
+    </Window.Resources>
+
+
+        <DockPanel>
 
         <ListBox 
             ItemsSource="{Binding Plates}"
-            SelectedItem="{Binding SelectedPlate}" />
+            SelectedItem="{Binding SelectedPlate}" 
+            ItemTemplate="{StaticResource PlateDataTemplate}"/>
 
     </DockPanel>
 </Window>
