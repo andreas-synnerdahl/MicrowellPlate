@@ -14,14 +14,18 @@
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type main:Well}">
-            <Ellipse 
+            <Grid>
+                <Ellipse 
                 Fill="LightGray"
                 Stroke="Black" 
-                StrokeThickness="1" />
-        </DataTemplate>
-        
-        
+                StrokeThickness="1" >
+                </Ellipse>
+                <UniformGrid Columns="{Binding PositionColumns}" Rows="{Binding PositionRows}">
+                    <Rectangle Fill="Black" Height="20" Width="20" />
+                </UniformGrid>
 
+            </Grid>
+        </DataTemplate>
         <DataTemplate 
             x:Key="PlateDataTemplate"
             DataType="{x:Type main:Plate}">

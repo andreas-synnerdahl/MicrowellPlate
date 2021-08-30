@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace MicrowellPlate.Main
 {
-    public class WellPlate6: Plate
+    public class WellPlate24 : Plate
     {
-        public WellPlate6():base(rows:2, columns:3, positionRows:2, positionColumns:4)
+        public WellPlate24() : base(rows: 4, columns: 6)
         {
+
         }
-
-
     }
 }

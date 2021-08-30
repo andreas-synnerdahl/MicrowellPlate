@@ -17,6 +17,7 @@ namespace MicrowellPlate.Main
             {
                 new WellPlate6(),
                 new WellPlate12(),
+                new WellPlate24(),
             };
         }
 
